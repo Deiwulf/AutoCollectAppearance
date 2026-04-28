@@ -346,7 +346,7 @@ eventFrame:SetScript("OnEvent", function(self, event, addon)
         _G[unboundCheckbox:GetName() .. "Text"]:SetText("Always add unbound items (will bind them)")
         unboundCheckbox:SetChecked(DB.addUnbound)
         unboundCheckbox:SetScript("OnClick", function(self)
-            DB.addUnbound = self:GetChecked()
+            DB.addUnbound = self:GetChecked() and true or false  -- Explicitly save boolean, not nil
             UpdateButtonDisplay()
         end)
 
